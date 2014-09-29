@@ -4,71 +4,9 @@
       <title>EstudiAntes</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="./headerCSS.css" type="text/css" />
       
       <style type="text/css">
-         .menu{
-            border-bottom:1px solid #3283C9;
-            height:3.5em;
-         }
-         .menu>ul{
-            margin-top:1em;
-            float:right;
-         }
-         .menu>ul>li{
-            list-style-type: none;
-            margin: 0;
-            padding:1em 0.5em;
-            border:1px solid black;
-            width:20%;
-            display:inline;
-            text-decoration: none;
-            border: 0px;
-            text-align: center;
-            color: #DCDDF2;
-            font-size:12pt;
-         }
-         .menu>ul>li:hover{
-            border-left: 3px solid #3283C9;
-            color:#FAFBFD;
-            background-color:#5793C8;
-            cursor:pointer;
-            font-weight:bold;
-            position:relative;
-         }
-         .menu>ul>li>ul{
-            visibility:hidden;
-         }
-         .menu>ul>li:hover>ul{
-            visibility:visible;
-         }
-         .menu>ul>li>ul{
-            position:absolute;
-            padding-top:1em;
-            left:-7em;
-            width:10em;
-         }
-         .menu>ul>li>ul>li{
-            border: 0px;
-            list-style-type: none;
-            width:10em;
-            height:2em;
-            padding-left:0.5em;
-            display:inline block;
-            text-align: left;
-            color: #DCDDF2;
-            font-size:10pt;
-         }
-         
-         .menu>ul>li:hover>ul>li:hover{
-            border-left: 3px solid #3283C9;
-            color:#FAFBFD;
-            background-color:#5793C8;
-            cursor:pointer;
-            font-weight:bold;
-            position:relative;
-         }
-         
-         
          .header{
             margin-bottom:1em;
             background-color: #428BCA;
@@ -83,7 +21,7 @@
    </head>
    
    <body>
-      
+
       <section class="header">
          <div class="menu">
             <ul>
@@ -102,11 +40,13 @@
          </div>
          
          <div>
-            <h1 style="margin-left:5em;">Working On It.</h1>
+            <img src="./LogoPequenio.png" style="margin-left:7em; margin-top:-2em;">
          </div>
          
       </section>
       <div class="body">
+         <div></div>
+         
       </div>
       
       
