@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="">
    <head>
       <title>EstudiAntes</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -16,6 +16,25 @@
          .body{
             width:100%;
             height:70%;
+         }
+         
+         
+         
+         .menuVertical{
+            height:45em;
+            width:20%;
+            margin-left:5%;
+            border-right:2px solid #CFCFCF;
+            corlor:gray;
+            box-shadow: 10px 10px 5px #888888;
+         }
+         .optionVertical:{
+            corlor:gray;
+         }
+         .optionVertical:hover{
+            border-right:5px solid white;
+            width:25%;
+            margin-right:-0.8em;
          }
       </style>
    </head>
@@ -45,11 +64,30 @@
          
       </section>
       <div class="body">
-         <div></div>
+         
+         <!--Hago el menu vertical con AngularJs-->
+         <div class="menuVertical menu" ng-controller="menuVertical">
+            <ul ng-repeat="op in options">
+               <li class="optionVertical">
+                  {{op.name +" "+ op.show}}
+               </li>
+            </ul>
+         </div>
+         <script type="text/javascript">
+            function menuVertical($scope){
+               $scope.options = [
+                  {id:1 , name : "Option1", show: "VentanaOpcion1", subOption:[]}
+                  ,{id:2 ,name : "Option2", show: "VentanaOpcion2", subOption:[]}
+                  ,{id:3 ,name : "Option3", show: "VentanaOpcion3", subOption:[]}
+                  ,{id:4 ,name : "Option4", show: "VentanaOpcion4", subOption:[]}
+               ];
+            }
+         </script>
+         
          
       </div>
       
       
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
    </body>
 </html>
