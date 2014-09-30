@@ -4,7 +4,7 @@
       <title>EstudiAntes</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="./headerCSS.css" type="text/css" />
+      <link rel="stylesheet" href="./menuCSS.css" type="text/css" />
       
       <style type="text/css">
          .header{
@@ -18,24 +18,6 @@
             height:70%;
          }
          
-         
-         
-         .menuVertical{
-            height:45em;
-            width:20%;
-            margin-left:5%;
-            border-right:2px solid #CFCFCF;
-            corlor:gray;
-            box-shadow: 10px 10px 5px #888888;
-         }
-         .optionVertical:{
-            corlor:gray;
-         }
-         .optionVertical:hover{
-            border-right:5px solid white;
-            width:25%;
-            margin-right:-0.8em;
-         }
       </style>
    </head>
    
@@ -59,28 +41,49 @@
          </div>
          
          <div>
-            <img src="./LogoPequenio.png" style="margin-left:7em; margin-top:-2em;">
+            <img src="./LogoPequenio.png" style="margin-left:11em; margin-top:-3em;width:22%; z-index:1000;">
          </div>
          
       </section>
       <div class="body">
          
          <!--Hago el menu vertical con AngularJs-->
-         <div class="menuVertical menu" ng-controller="menuVertical">
-            <ul ng-repeat="op in options">
-               <li class="optionVertical">
-                  {{op.name +" "+ op.show}}
+         <div class="menuVertical" ng-controller="menuVertical">
+            <ul >
+               <li class="optionVertical" ng-repeat="op in options">
+                  {{op.name +" "+ op.show+" - "+existSubOption(op)}}
+                     <ul ng-show="existSubOption(op)" >
+                        <li class="optionVertical" ng-repeat="subOp in op.subOption">
+                           {{subOp.name +" "+ subOp.show}}
+                           <ul ng-show="existSubOption(subOp)" >
+                              <li class="optionVertical" ng-repeat="subOp2 in subOp.subOption">
+                                 {{subOp2.name +" "+ subOp2.show}}
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
                </li>
             </ul>
          </div>
          <script type="text/javascript">
             function menuVertical($scope){
                $scope.options = [
-                  {id:1 , name : "Option1", show: "VentanaOpcion1", subOption:[]}
+                  {id:1 , name : "Option1", show: "VentanaOpcion1", subOption:[
+                     {id:5 , name : "Option1.1", show: "VentanaOpcion1.1", subOption:[]}
+                     ,{id:6 , name : "Option1.2", show: "VentanaOpcion1.2", subOption:[]}
+                     ,{id:7 , name : "Option1.3", show: "VentanaOpcion1.3", subOption:[
+                        {id:8 , name : "Option1.3.1", show: "VentanaOpcion1.3.1", subOption:[]}
+                        ,{id:9 , name : "Option1.3.2", show: "VentanaOpcion1.3.2", subOption:[]}
+                        ,{id:10 , name : "Option1.3.2", show: "VentanaOpcion1.3.3", subOption:[]}
+                     ]}
+                  ]}
                   ,{id:2 ,name : "Option2", show: "VentanaOpcion2", subOption:[]}
                   ,{id:3 ,name : "Option3", show: "VentanaOpcion3", subOption:[]}
                   ,{id:4 ,name : "Option4", show: "VentanaOpcion4", subOption:[]}
                ];
+               $scope.existSubOption = function(op){
+                  return (op.subOption.length > 0)? true: false;
+               }
             }
          </script>
          

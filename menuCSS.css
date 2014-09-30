@@ -1,0 +1,161 @@
+      /*--D42519  449d44*/
+.menu{
+            border-bottom:1px solid #3283C9;
+            height:3.5em;
+         }
+         .menu>ul{
+            margin-top:1em;
+            float:right;
+         }
+         .menu>ul>li{
+            list-style-type: none;
+            margin: 0;
+            padding:1em 0.5em;
+            border:1px solid black;
+            width:20%;
+            display:inline;
+            text-decoration: none;
+            border: 0px;
+            text-align: center;
+            color: #DCDDF2;
+            font-size:12pt;
+         }
+         .menu>ul>li:hover{
+            border-left: 3px solid #3283C9;
+            color:#FAFBFD;
+            background-color:#5793C8;
+            cursor:pointer;
+            font-weight:bold;
+            position:relative;
+         }
+         .menu>ul>li>ul{
+            visibility:hidden;
+         }
+         .menu>ul>li:hover>ul{
+            visibility:visible;
+         }
+         .menu>ul>li>ul{
+            position:absolute;
+            padding-top:1em;
+            left:-7em;
+            width:10em;
+         }
+         .menu>ul>li>ul>li{
+            border: 0px;
+            list-style-type: none;
+            width:10em;
+            height:2em;
+            padding-left:0.5em;
+            display:inline block;
+            text-align: left;
+            color: #DCDDF2;
+            font-size:10pt;
+         }
+         
+         .menu>ul>li:hover>ul>li:hover{
+            border-left: 3px solid #3283C9;
+            color:#FAFBFD;
+            background-color:#5793C8;
+            cursor:pointer;
+            font-weight:bold;
+            position:relative;
+         }
+         
+         
+         
+         
+         
+         
+         /*Menu Vertical CSS*/
+         .menuVertical{
+            position:absolute;
+            height:90%;
+            width:25%;
+            border-right:2px solid #5793C8;/*CFCFCF*/
+            color:black;
+            box-shadow: 2px 5px 5px #888888;
+            background-color:#EEEEEE;
+            margin-top:-2em;
+            z-index:-100;
+            padding-top:2em;
+         }
+         .menuVertical>ul{
+            padding-left:0;
+         }
+         .menuVertical>ul>li{
+            list-style-type: none;
+            margin: 0;
+            padding:1em 0.5em;
+            border:1px solid black;
+            width:100%;
+            display:inline block;
+            text-decoration: none;
+            border: 0px;
+            text-align: center;
+            color: black;
+            font-size:12pt;
+            border-bottom:1px solid #3283C9;
+            box-shadow: 2px 5px 5px #888888;
+         }
+         .menuVertical>ul>li:hover{
+            width:100%;
+            border-left: 3px solid #3283C9;
+            border-right:2px solid #5793C8;
+            border-radius:0.2em;
+            color:#FAFBFD;
+            background-color:#5793C8;
+            cursor:pointer;
+            font-weight:bold;
+            position:relative;
+         }
+         .menuVertical>ul>li ul{
+            visibility:hidden;
+            
+            position:absolute;
+            width:100%;
+            display:inline;
+            margin-top:-0.5em;
+            margin-left:6%;
+         }
+         .menuVertical>ul>li:hover>ul{
+            visibility:visible;
+         }
+         .menuVertical>ul>li ul>li{
+            border: 0px;
+            list-style-type: none;
+            width:100%;
+            height:2em;
+            padding-left:0em;
+            display:inline block;
+            text-align: left;
+            color: black;
+            font-size:10pt;
+            border-bottom:1px solid #3283C9;
+            box-shadow: 1px 5px 5px #888888;
+            padding-top:0.5em;
+            text-align: center;
+         }
+         
+         .menuVertical>ul>li:hover ul>li:hover{
+            border-left: 3px solid #3283C9;
+            color:#FAFBFD;
+            background-color:#5793C8;
+            cursor:pointer;
+            font-weight:bold;
+            width:100%;
+         }
+         .optionVertical:{
+            padding-top:0.5em;
+            width:100%;
+            margin:0px;
+            color:black;
+            display:inline-block;
+            background-color:#EEEEEE;
+         }
+         .optionVertical:hover{
+            border-right:5px solid white;
+            width:100%;
+         }
+         .optionVertical:hover>ul{
+            visibility:visible;
+         }
