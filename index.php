@@ -51,10 +51,10 @@
          <div class="menuVertical" ng-controller="menuVertical">
             <ul >
                <li class="optionVertical" ng-repeat="op in options">
-                  {{op.name +" "+ op.show+" - "+existSubOption(op)}}
+                  {{op.name +" "+ op.show}}<i style="margin-right:5px;float:right;" ng-show="existSubOption(op)" class="fa fa-angle-double-down fa-lg"></i>
                      <ul ng-show="existSubOption(op)" >
                         <li class="optionVertical" ng-repeat="subOp in op.subOption">
-                           {{subOp.name +" "+ subOp.show}}
+                           {{subOp.name +" "+ subOp.show}}<i style="margin-right:5px;float:right;" ng-show="existSubOption(subOp)" class="fa fa-angle-double-down fa"></i>
                            <ul ng-show="existSubOption(subOp)" >
                               <li class="optionVertical" ng-repeat="subOp2 in subOp.subOption">
                                  {{subOp2.name +" "+ subOp2.show}}
@@ -79,7 +79,11 @@
                   ]}
                   ,{id:2 ,name : "Option2", show: "VentanaOpcion2", subOption:[]}
                   ,{id:3 ,name : "Option3", show: "VentanaOpcion3", subOption:[]}
-                  ,{id:4 ,name : "Option4", show: "VentanaOpcion4", subOption:[]}
+                  ,{id:4 ,name : "Option4", show: "VentanaOpcion4", subOption:[
+                        {id:8 , name : "Option1.3.1", show: "VentanaOpcion1.3.1", subOption:[]}
+                        ,{id:9 , name : "Option1.3.2", show: "VentanaOpcion1.3.2", subOption:[]}
+                        ,{id:10 , name : "Option1.3.2", show: "VentanaOpcion1.3.3", subOption:[]}
+                     ]}
                ];
                $scope.existSubOption = function(op){
                   return (op.subOption.length > 0)? true: false;
