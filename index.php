@@ -7,19 +7,6 @@
       <link rel="stylesheet" href="./menuCSS.css" type="text/css" />
 
 
-      <style type="text/css">
-         .header{
-            margin-bottom:1em;
-            background-color: #428BCA;
-            height:10em;
-            box-shadow: 0px 3px 5px #999;
-         }
-         .body{
-            width:100%;
-            height:70%;
-         }
-         
-      </style>
    </head>
    
    <body>
@@ -42,7 +29,7 @@
          </div>
          
          <div>
-            <img src="./LogoPequenio.png" style="margin-left:11em; margin-top:-3em;width:22%; z-index:1000;">
+            <img src="./LogoPequenio.png" style="margin-left:11%; margin-top:-4%;width:22%;">
          </div>
          
       </section>
@@ -51,13 +38,13 @@
          <!--Hago el menu vertical con AngularJs-->
          <div class="menuVertical" ng-controller="menuVertical">
             <ul >
-               <li class="optionVertical" ng-repeat="op in options">
+               <li class="optionVertical" ng-repeat="op in options" ng-click="changeFrame(op); $event.stopPropagation()";>
                   {{op.name +" "+ op.show}}<i style="margin-right:5px;float:right;" ng-show="existSubOption(op)" class="fa fa-angle-double-down fa-lg"></i>
                      <ul ng-show="existSubOption(op)" >
-                        <li class="optionVertical" ng-repeat="subOp in op.subOption">
+                        <li class="optionVertical" ng-repeat="subOp in op.subOption" ng-click="changeFrame(subOp); $event.stopPropagation()";>
                            {{subOp.name +" "+ subOp.show}}<i style="margin-right:5px;float:right;" ng-show="existSubOption(subOp)" class="fa fa-angle-double-down fa"></i>
                            <ul ng-show="existSubOption(subOp)" >
-                              <li class="optionVertical" ng-repeat="subOp2 in subOp.subOption">
+                              <li class="optionVertical" ng-repeat="subOp2 in subOp.subOption" ng-click="changeFrame(subOp2); $event.stopPropagation()";>
                                  {{subOp2.name +" "+ subOp2.show}}
                               </li>
                            </ul>
@@ -67,8 +54,10 @@
             </ul>
          </div>
          
-         <div class="frame">
-         as
+         <div class="frame" ng-controller="showFrame">
+            {{show+" <= WhatShow"}}<br>
+            {{name}}
+            <input type="text" ng-model="name"/>
          </div>
       </div>
       
