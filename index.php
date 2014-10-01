@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html ng-app="myApps">
    <head>
       <title>EstudiAntes</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
       <link rel="stylesheet" href="./menuCSS.css" type="text/css" />
-      
+
+
       <style type="text/css">
          .header{
             margin-bottom:1em;
             background-color: #428BCA;
             height:10em;
-            box-shadow: 0px 3px 15px #999;
+            box-shadow: 0px 3px 5px #999;
          }
          .body{
             width:100%;
@@ -65,36 +66,14 @@
                </li>
             </ul>
          </div>
-         <script type="text/javascript">
-            function menuVertical($scope){
-               $scope.options = [
-                  {id:1 , name : "Option1", show: "VentanaOpcion1", subOption:[
-                     {id:5 , name : "Option1.1", show: "VentanaOpcion1.1", subOption:[]}
-                     ,{id:6 , name : "Option1.2", show: "VentanaOpcion1.2", subOption:[]}
-                     ,{id:7 , name : "Option1.3", show: "VentanaOpcion1.3", subOption:[
-                        {id:8 , name : "Option1.3.1", show: "VentanaOpcion1.3.1", subOption:[]}
-                        ,{id:9 , name : "Option1.3.2", show: "VentanaOpcion1.3.2", subOption:[]}
-                        ,{id:10 , name : "Option1.3.2", show: "VentanaOpcion1.3.3", subOption:[]}
-                     ]}
-                  ]}
-                  ,{id:2 ,name : "Option2", show: "VentanaOpcion2", subOption:[]}
-                  ,{id:3 ,name : "Option3", show: "VentanaOpcion3", subOption:[]}
-                  ,{id:4 ,name : "Option4", show: "VentanaOpcion4", subOption:[
-                        {id:8 , name : "Option1.3.1", show: "VentanaOpcion1.3.1", subOption:[]}
-                        ,{id:9 , name : "Option1.3.2", show: "VentanaOpcion1.3.2", subOption:[]}
-                        ,{id:10 , name : "Option1.3.2", show: "VentanaOpcion1.3.3", subOption:[]}
-                     ]}
-               ];
-               $scope.existSubOption = function(op){
-                  return (op.subOption.length > 0)? true: false;
-               }
-            }
-         </script>
          
-         
+         <div class="frame">
+         as
+         </div>
       </div>
       
       
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+      <script type="text/javascript" src="./myApps.js"></script>
    </body>
 </html>
