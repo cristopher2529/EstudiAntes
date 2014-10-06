@@ -1,0 +1,15 @@
+<div ng-controller="registreUser">
+   Nombre: <input type="text" ng-model="userName"/><br />
+   Password: <input type="text" ng-model="password"/><br />
+   Password: <input type="text" ng-model="password2"/><span ng-if="password != password2">Password no coinciden.</span><br />
+   Email: <input type="text" ng-model="email"/><br />
+   {{userName+" "+password+" "+email}}
+</div>
+<script type="text/javascript">
+   function registreUser($scope){
+         $scope.password = null;
+         $scope.password2=null;
+         $scope.email = null;
+         $scope.userName = null;
+   }
+</script>

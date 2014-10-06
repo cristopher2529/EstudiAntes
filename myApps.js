@@ -23,8 +23,8 @@ app.factory('frameControlShare',function($rootScope){
 //Servicios
 function ServicioMenu($rootScope, $http){
    this. options = [
-      {id:1 , name : "Tareas", show: "VentanaOpcion1", subOption:[
-         {id:5 , name : "Option1.1", show: "VentanaOpcion1.1", subOption:[]}
+      {id:1 , name : "Profesores", show: "informacionProfesor", subOption:[
+         {id:5 , name : "Registrar Profesor", show: "registrar", subOption:[]}
          ,{id:6 , name : "Option1.2", show: "VentanaOpcion1.2", subOption:[]}
          ,{id:7 , name : "Option1.3", show: "VentanaOpcion1.3", subOption:[
             {id:8 , name : "Option1.3.1", show: "VentanaOpcion1.3.1", subOption:[]}
@@ -47,52 +47,9 @@ function ServicioMenu($rootScope, $http){
       $rootScope.$broadcast('changeServiceFrame');
    }
    
-   this.result;
-   this.getJson = function(){
-      var responsePromise = $http.get({method:"get", url:"./Json.php"});
-
-      return (responsePromise.then(handleSuccess, handleError));
-   }
 }
 app.service("ServicioMenu",ServicioMenu);
 
-app.service("friendService",function( $http, $q ) {
- 
-                // I get all of the friends in the remote collection.
-                function getFriends() {
- 
-                    var request = $http({
-                        method: "get",
-                        url: "Json.php"
-                    });
- 
-                    return( request.then( handleSuccess, handleError ) );
- 
-                }
-                
-                function handleError( response ) {
-                    if (
-                        ! (typeof response.data === "object") ||
-                        ! response.data.message
-                        ) {
- 
-                        return( $q.reject( "An unknown error occurred." ) );
- 
-                    }
- 
-                    // Otherwise, use expected error message.
-                    return( $q.reject( response.data.message ) );
- 
-                }
- 
-                function handleSuccess( response ) {
- 
-                    return( response.data );
- 
-                }
- 
-            }
-        );
 
 app.controller("menuVertical",function($scope,frameControlShare, ServicioMenu){
    $scope.options = ServicioMenu.options;
@@ -106,13 +63,12 @@ app.controller("menuVertical",function($scope,frameControlShare, ServicioMenu){
       if(op.length > 1)
          op = op[0];
          
-      // console.log(op)
       ServicioMenu.setName(op.show); 
       frameControlShare.preForBroadcast(op.show);
    }            
 });
 
-app.controller("showFrame",function($scope, frameControlShare, ServicioMenu, friendService){
+app.controller("showFrame",function($scope, frameControlShare, ServicioMenu){
    $scope.show = "Me";
    $scope.name = ServicioMenu.name;
    
@@ -126,10 +82,10 @@ app.controller("showFrame",function($scope, frameControlShare, ServicioMenu, fri
    })
    
    $scope.$on("changeServiceFrame", function(){
-      // console.log("<- "+ServicioMenu.name)
       $scope.name = ServicioMenu.name;
-      // ServicioMenu.getJson();
-      // $scope.name = ServicioMenu.result;
-      console.log(friendService.getFriends())
    })
+});
+
+app.controller("registreUser",function($scope){
+
 });

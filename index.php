@@ -55,9 +55,30 @@
          </div>
          
          <div class="frame" ng-controller="showFrame">
-            {{show+" <= WhatShow"}}<br>
-            {{name}}
+            {{show+" <= WhatShow "}}{{name}}
             <input type="text" ng-model="name"/>
+            <br>
+            
+            <hr />
+            <div ng-switch on="show">
+               <div ng-switch-when="registrar">
+                  <h2>{{"Registrar nuevo usuario."}}</h2>
+                  <div ng-include="'./registrar.html'"></div>
+               </div>
+               <div ng-switch-when="VentanaOpcion2">
+                  {{"Formulario2"}}
+               </div>
+               <div ng-switch-when="VentanaOpcion3">
+                  {{"Formulario3"}}
+               </div>
+               <div ng-switch-when="VentanaOpcion4">
+                  {{"Formulario4"}}
+               </div>
+               <div ng-switch-default>
+                  {{"Welcome to This Site!"}}
+               </div>
+            </div>
+
          </div>
       </div>
       
