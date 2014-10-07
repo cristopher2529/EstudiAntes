@@ -74,8 +74,6 @@ app.controller("showFrame",function($scope, frameControlShare, ServicioMenu){
    
    $scope.controller = "frameChild"
    
-   $scope.controller = "frameChild"
-   
    
    $scope.$on("changeFrame", function(){
       $scope.show = frameControlShare.show;
@@ -89,3 +87,4 @@ app.controller("showFrame",function($scope, frameControlShare, ServicioMenu){
 app.controller("registreUser",function($scope){
 
 });
+//http://tutorials.jenkov.com/angularjs/views-and-directives.html

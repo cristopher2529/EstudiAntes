@@ -39,13 +39,13 @@
          <div class="menuVertical" ng-controller="menuVertical">
             <ul >
                <li class="optionVertical" ng-repeat="op in options" ng-click="changeFrame(op); $event.stopPropagation()";>
-                  {{op.name +" "+ op.show}}<i style="margin-right:5px;float:right;" ng-show="existSubOption(op)" class="fa fa-angle-double-down fa-lg"></i>
+                  {{op.name +" - "+ op.show}}<i style="margin-right:5px;float:right;" ng-show="existSubOption(op)" class="fa fa-angle-double-down fa-lg"></i>
                      <ul ng-show="existSubOption(op)" >
                         <li class="optionVertical" ng-repeat="subOp in op.subOption" ng-click="changeFrame(subOp); $event.stopPropagation()";>
-                           {{subOp.name +" "+ subOp.show}}<i style="margin-right:5px;float:right;" ng-show="existSubOption(subOp)" class="fa fa-angle-double-down fa"></i>
+                           {{subOp.name +" - "+ subOp.show}}<i style="margin-right:5px;float:right;" ng-show="existSubOption(subOp)" class="fa fa-angle-double-down fa"></i>
                            <ul ng-show="existSubOption(subOp)" >
                               <li class="optionVertical" ng-repeat="subOp2 in subOp.subOption" ng-click="changeFrame(subOp2); $event.stopPropagation()";>
-                                 {{subOp2.name +" "+ subOp2.show}}
+                                 {{subOp2.name +" - "+ subOp2.show}}
                               </li>
                            </ul>
                         </li>
@@ -56,7 +56,6 @@
          
          <div class="frame" ng-controller="showFrame">
             {{show+" <= WhatShow "}}{{name}}
-            <input type="text" ng-model="name"/>
             <br>
             
             <hr />
