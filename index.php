@@ -36,9 +36,9 @@
       <div class="body">
          
          <!--Hago el menu vertical con AngularJs-->
-         <div class="menuVertical" ng-controller="menuVertical">
+         <div class="menuVertical" ng-controller="ControllerMenu">
             <ul >
-               <li class="optionVertical" ng-repeat="op in options" ng-click="changeFrame(op); $event.stopPropagation()";>
+               <li  class="optionVertical" ng-repeat="op in options" ng-click="changeFrame(op); $event.stopPropagation()";>
                   {{op.name +" - "+ op.show}}<i style="margin-right:5px;float:right;" ng-show="existSubOption(op)" class="fa fa-angle-double-down fa-lg"></i>
                      <ul ng-show="existSubOption(op)" >
                         <li class="optionVertical" ng-repeat="subOp in op.subOption" ng-click="changeFrame(subOp); $event.stopPropagation()";>
@@ -54,8 +54,8 @@
             </ul>
          </div>
          
-         <div class="frame" ng-controller="showFrame">
-            {{show+" <= WhatShow "}}{{name}}
+         <div class="frame" ng-controller="ControllerFrame">
+            {{show+" <= "}}{{name}}
             <br>
             
             <hr />

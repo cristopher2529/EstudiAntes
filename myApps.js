@@ -1,27 +1,8 @@
-var app = angular.module('myApps', []);
 
+//Modulo del Menu vertical
+var menuModelo = angular.module("ModuleMenu",[]);
 
-//Factory
-app.factory('frameControlShare',function($rootScope){
-   
-   var showFrame = {
-      show:null,
-      preForBroadcast: function(show){
-         this.show = show;
-         this.broadcastItem();
-      },
-      broadcastItem: function(){
-         $rootScope.$broadcast('changeFrame');
-      }
-   }
-   
-   return showFrame;
-});
-
-
-
-//Servicios
-function ServicioMenu($rootScope, $http){
+menuModelo.service("ServicioMenu",["$rootScope",function($rootScope){
    this. options = [
       {id:1 , name : "Profesores", show: "informacionProfesor", subOption:[
          {id:5 , name : "Registrar Profesor", show: "registrar", subOption:[]}
@@ -42,16 +23,15 @@ function ServicioMenu($rootScope, $http){
    ];
    
    this.name = "Cristopher";
-   this.setName = function(txt){
-      this.name = txt;
+   this.show = "SomeThing";
+   this.setName = function(op){
+      this.name = op.name;
+      this.show = op.show;
       $rootScope.$broadcast('changeServiceFrame');
    }
-   
-}
-app.service("ServicioMenu",ServicioMenu);
+}]);
 
-
-app.controller("menuVertical",function($scope,frameControlShare, ServicioMenu){
+menuModelo.controller("ControllerMenu",function($scope, ServicioMenu){
    $scope.options = ServicioMenu.options;
    $scope.name = ServicioMenu.name;     
                
@@ -63,28 +43,33 @@ app.controller("menuVertical",function($scope,frameControlShare, ServicioMenu){
       if(op.length > 1)
          op = op[0];
          
-      ServicioMenu.setName(op.show); 
-      frameControlShare.preForBroadcast(op.show);
-   }            
+      ServicioMenu.setName(op); 
+   }
 });
 
-app.controller("showFrame",function($scope, frameControlShare, ServicioMenu){
-   $scope.show = "Me";
+
+//Modulo de los frames que se mostraran al interactuar con el menu vertical
+var frameModule = angular.module("ModuleFrame",["ModuleMenu"]);
+
+frameModule.controller("ControllerFrame",function($scope, ServicioMenu){
+   $scope.show = ServicioMenu.show;
    $scope.name = ServicioMenu.name;
    
    $scope.controller = "frameChild"
-   
-   
-   $scope.$on("changeFrame", function(){
-      $scope.show = frameControlShare.show;
-   })
+
    
    $scope.$on("changeServiceFrame", function(){
       $scope.name = ServicioMenu.name;
+      $scope.show = ServicioMenu.show;
    })
 });
 
-app.controller("registreUser",function($scope){
 
-});
-//http://tutorials.jenkov.com/angularjs/views-and-directives.html
+//registro el 
+var registreUserModule = angular.module("ModuleregistreUser",["ModuleFrame"]);
+registreUserModule.controller("ControllerRegistreUser",["$scope",function($scope){
+   
+}]);
+
+
+var app = angular.module("myApps",["ModuleMenu","ModuleFrame","ModuleregistreUser"]);
