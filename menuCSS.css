@@ -238,7 +238,7 @@
          
          /*---------Frame-----------*/
          .frame{
-            border:2px solid black;
+            border:0px solid black;
             float:right;
             width:72%;
             margin-top:-0.5em;

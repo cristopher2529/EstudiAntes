@@ -1,11 +1,29 @@
-
+//Togaf,   ATAM,  Graddy Brust Grust,   karman y melon
 //Modulo del Menu vertical
 var menuModelo = angular.module("ModuleMenu",[]);
 
-menuModelo.service("ServicioMenu",["$rootScope",function($rootScope){
+menuModelo.service("ServicioMenu",["$rootScope","$http",function($rootScope,$http){
+   
+   // var bvpromo = angular.module("promociones", []);
+   // bvpromo.controller("listaCampaign", function($scope, $http) {
+   //     var response = $http.get("../getPromo.jsp");
+   
+   //     response.success(function(data, status) {
+   //        console.log("promo succsess");
+   //        $scope.campaigns = data.Records;
+   //        console.log(data.Records);
+   //     });
+   // });
+   $http.get('Json.php')
+   .success(function(data, status, headers, config){
+      console.log("Success",data, status, headers, config);
+   }).error(function(data, status, headers, config){
+      console.log("Error",data, status, headers, config);
+   });
+      
    this. options = [
       {id:1 , name : "Profesores", show: "informacionProfesor", subOption:[
-         {id:5 , name : "Registrar Profesor", show: "registrar", subOption:[]}
+         {id:5 , name : "Registrar Profesor", show: 'registrar.html', subOption:[]}
          ,{id:6 , name : "Option1.2", show: "VentanaOpcion1.2", subOption:[]}
          ,{id:7 , name : "Option1.3", show: "VentanaOpcion1.3", subOption:[
             {id:8 , name : "Option1.3.1", show: "VentanaOpcion1.3.1", subOption:[]}
@@ -23,7 +41,7 @@ menuModelo.service("ServicioMenu",["$rootScope",function($rootScope){
    ];
    
    this.name = "Cristopher";
-   this.show = "SomeThing";
+   this.show = "registrar.html";
    this.setName = function(op){
       this.name = op.name;
       this.show = op.show;
@@ -52,7 +70,7 @@ menuModelo.controller("ControllerMenu",function($scope, ServicioMenu){
 var frameModule = angular.module("ModuleFrame",["ModuleMenu"]);
 
 frameModule.controller("ControllerFrame",function($scope, ServicioMenu){
-   $scope.show = ServicioMenu.show;
+   $scope.show = 'registrar.html';
    $scope.name = ServicioMenu.name;
    
    $scope.controller = "frameChild"
@@ -73,3 +91,6 @@ registreUserModule.controller("ControllerRegistreUser",["$scope",function($scope
 
 
 var app = angular.module("myApps",["ModuleMenu","ModuleFrame","ModuleregistreUser"]);
+
+
+

@@ -1,16 +1,87 @@
-<div ng-controller="ControllerRegistreUser">
-   Nombre: <input type="text" ng-model="userName"/><br />
-   Password: <input type="text" ng-model="password"/><br />
-   Password: <input type="text" ng-model="password2"/><span ng-if="password != password2">Password no coinciden.</span><br />
-   Email: <input type="text" ng-model="email"/><br />
+<form ng-controller="ControllerRegistreUser" class="form-horizontal" role="form" style="position:relative;width:90%;">
+
+   <div class="form-group">
+      <label class="col-sm-2 control-label">Nombres:</label>
+      <div class="col-sm-10 has-feedback" >
+         <input type="text" class="form-control input-group" ng-model="userName" placeholder="Nombre"/>
+         <span class="glyphicon glyphicon-font form-control-feedback"></span>
+      </div>
+   </div>
+   
+   <div class="form-group">
+      <label class="col-sm-2 control-label">Apellidos:</label>
+      <div class="col-sm-10 has-feedback" >
+         <input type="text" class="form-control input-group" ng-model="userLastName" placeholder="Nombre"/>
+         <span class="glyphicon glyphicon-font form-control-feedback"></span>
+      </div>
+   </div>
+   
+      
+   <div class="form-group">
+      <label class="col-sm-2 control-label">Email:</label>
+      <div class="col-sm-10 has-feedback" >
+         <input type="email" class="form-control input-group" ng-model="email" placeholder="example@example.com"/>
+         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+   </div>
+
+   
+   <div class="form-group">
+      <label class="col-sm-2 control-label">Password:</label>
+      <div class="col-sm-10 has-feedback" >
+         <input type="password" class="form-control input-group" ng-model="password" placeholder="Password"/>
+         <span class="glyphicon glyphicon-eye-close form-control-feedback" ng-if="password == password2" ></span>
+         <span class="glyphicon glyphicon-remove form-control-feedback" ng-if="password != password2" ></span>
+      </div>
+   </div>
+   
+   <div class="form-group">
+      <label class="col-sm-2 control-label">Password:</label>
+      <div class="col-sm-10 has-feedback" >
+         <input type="password" class="form-control input-group" ng-model="password2" placeholder="Password"/>
+         <span class="glyphicon glyphicon-eye-close form-control-feedback" ng-if="password == password2" ></span>
+         <span class="glyphicon glyphicon-remove form-control-feedback" ng-if="password != password2" ></span>
+         <span ng-if="password != password2" style="color:red;">Password no coinciden.</span>
+      </div>
+   </div>
+   
+   
+   <div class="form-group">
+      <label class="col-sm-2 control-label">Fecha Nacimiento:</label>
+      <div class="col-sm-4 has-feedback" >
+         <input type="date" class="form-control input-group"/>
+         <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
+      </div>
+      <label class="col-sm-2 control-label">Sexo:</label>
+      <div class="col-sm-4 has-feedback" >
+         <div class="radio">
+           <label>
+             <input type="radio" name="optionsRadios" id="optionsRadios1">
+             {{"Hombre   "}}
+           </label>
+           <label>
+             <input type="radio" name="optionsRadios" id="optionsRadios1">
+             {{"Mujer "}}
+           </label>
+         </div>
+      </div>
+   </div>
+   
    {{userName+" "+password+" "+email}}
-</div>
+</form>
 <script type="text/javascript">
    function ControllerRegistreUser($scope){
+         $scope.userName = null;
+         $scope.userLastName = null;
          $scope.password = null;
          $scope.password2=null;
          $scope.email = null;
-         $scope.userName = null;
+
+         
+         $scope.clearPasword = function(){
+            console.log("Passs");
+            $scope.password2 = null;
+         }
    }
    var module =  angular.module("ModuleregistreUser");
    module.controller("ControllerRegistreUser",ControllerRegistreUser);
@@ -109,4 +180,34 @@ app.controller("registreUser",function($scope){
 });
 //http://tutorials.jenkov.com/angularjs/views-and-directives.html
 
+-->
+
+
+
+
+
+
+
+
+
+<!--
+            <div ng-switch on="show">
+               <div ng-switch-when="registrar.html">
+                  <h2>{{show}}</h2><br>
+                  <div ng-include src="show"></div>
+               </div>
+               <div ng-switch-when="VentanaOpcion2">
+                  {{"Formulario2"}}
+               </div>
+               <div ng-switch-when="VentanaOpcion3">
+                  {{"Formulario3"}}
+               </div>
+               <div ng-switch-when="VentanaOpcion4">
+                  {{"Formulario4"}}
+               </div>
+               <div ng-switch-default>
+                  {{"Welcome to This Site! "+show}}
+                  <div ng-include src="show"></div>
+               </div>
+            </div>
 -->
