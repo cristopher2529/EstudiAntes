@@ -7,29 +7,35 @@
    $user = "cristopher2529";
    $db = "ESTUDIANTE";
    
-   $conn = mysql_connect($ip, $user, '', $db)or die(mysql_error());
+   $conn = mysql_connect($ip, $user, '', $db) or die(mysql_error());
    mysql_select_db($db,$conn)or die(mysql_error());
-   $result = mysql_query("select * from ROLES",$conn)or die(mysql_error());
+   $result = mysql_query("select * from ROLES",$conn) or die(mysql_error());
    
-   $json = [];
+   $json = array();
    while ($fila = mysql_fetch_assoc($result)) {
-      echo $fila['NOMBRES'];
-      
+      $json["Result"] = "SUCCESS";
+      $json["Records"][] = $fila;
+   }
+   echo json_encode($json);
 
-      $row = [];
-      foreach ($fila as $key => $valor) {
-          echo "$key: $valor  |  ";
-          $row[$key] =  $valor ;
-      }echo "<br>$";
-      var_dump($row);
-      // array_push($json, $row);
-      
-      
-   }echo "<br><br><br>";
-   var_dump($json);
 
-   // echo json_encode(array(array( "Name" => "Alfreds Futterkiste", "City" => "Berlin", "Country" => "Germany" )
-   // ,array( "Name" => "Berglunds snabbköp", "City" => "Luleå", "Country" => "Sweden")
-   // ,array( "Name" => "dsaBerglunds snabbköp", "City" => "dsaLuleå", "Country" => "daSweden")));
+   //consiguiendo todos los parametros que me envien
+   // $arg_list = func_get_args();
+   // for ($i = 0; $i < $númargs; $i++) {
+   //    echo "El argumento $i es: " . $arg_list[$i] . "<br />\n";
+   // }
+   echo "<br>";
+   $parameters = array();
+   foreach ($_GET as $key=>$value) {
+     echo "$key = " . urldecode($value) . "<br />\n";
+     array_push($parameters,$value);
+   }
 
+   //lEER QUERY
+   $query = file_get_contents("sql/getRoles.sql");
+   // echo $query;
+   
+   function makeQuery($params, $query){
+      
+   }
 ?>
