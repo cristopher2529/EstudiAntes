@@ -25,17 +25,13 @@
    //    echo "El argumento $i es: " . $arg_list[$i] . "<br />\n";
    // }
    echo "<br>";
-   $parameters = array();
    foreach ($_GET as $key=>$value) {
      echo "$key = " . urldecode($value) . "<br />\n";
-     array_push($parameters,$value);
    }
 
    //lEER QUERY
    $query = file_get_contents("sql/getRoles.sql");
-   // echo $query;
+   echo $query;
    
-   function makeQuery($params, $query){
-      
-   }
+
 ?>
