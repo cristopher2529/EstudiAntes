@@ -8,8 +8,9 @@
          array_push($parameters, urldecode($value));
    }
    
+   //VALIDO QUE SE HAYA ESPECIFICADO EL QUERY A EJECUTAR
    if(!isset($_GET["query"])){
-      echo "No especifico el query";
+      echo json_encode(array('Result' => "Error", 'Records' => array(),'Mensaje' => "No se especifico el query a ejecutar"));
    }else{
       // echo $_GET["query"];
 
@@ -18,17 +19,18 @@
       $resultSet = getResults($query, $parameters);
    
       // var_dump($parameters);
+      $resultSet['Result'] = "OK";
       echo json_encode($resultSet);
       
       //PARA VER LOS REGISTROS SEPARADOS POR LINEA
-      /* foreach($resultSet['Result'] as $key=>$value){
-      //    // echo $key.": ".$value."<br>";
-      //    // var_dump($value);
-      //    echo "<br><br>".json_encode($value)."<br><br>";
-      //    foreach($value as $key2=>$value2){
-      //       echo $key2.": ".$value2."<br>";
-      //    }echo "-------------------------------------------------------------------------<br>";
-      // }*/
+      /*foreach($resultSet['Records'] as $key=>$value){
+         // echo $key.": ".$value."<br>";
+         // var_dump($value);
+         echo "<br><br>".json_encode($value)."<br><br>";
+         foreach($value as $key2=>$value2){
+            echo $key2.": ".$value2."<br>";
+         }echo "-------------------------------------------------------------------------<br>";
+      }*/
       
    }
    
@@ -79,7 +81,7 @@
              {
                 while($stmt->fetch()){
                    foreach($row as $key=>$value){
-                     $results['Result'][] = getCopy($row);
+                     $results['Records'][] = getCopy($row);
                       break;
                    }
                 }

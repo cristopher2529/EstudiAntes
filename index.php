@@ -55,6 +55,7 @@
          </div>
          
          <div class="frame" ng-controller="ControllerFrame">
+            <input type="button" value="Inicio" ng-click="showDialog()"/>
             <h1>{{name}} <small>{{"  "+show}}</small></h1>
             <hr />
             <div ng-if="show.length > 0">
@@ -70,5 +71,6 @@
       
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
       <script type="text/javascript" src="./myApps.js"></script>
+      <script type="text/javascript" src="./vendors/ngDialog.js"></script>
    </body>
 </html>
