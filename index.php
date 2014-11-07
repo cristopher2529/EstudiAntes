@@ -5,6 +5,9 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
       <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
       <link rel="stylesheet" href="./menuCSS.css" type="text/css" />
+      <link rel="stylesheet" href="./vendors/ngDialog.js" type="text/css" />
+      <link rel="stylesheet" href="./vendors/ngDialog-theme-default.js" type="text/css" />
+      <link rel="stylesheet" href="./vendors/ngDialog-theme-plain.js" type="text/css" />
 
 
    </head>
@@ -56,6 +59,7 @@
          
          <div class="frame" ng-controller="ControllerFrame">
             <input type="button" value="Inicio" ng-click="showDialog()"/>
+        
             <h1>{{name}} <small>{{"  "+show}}</small></h1>
             <hr />
             <div ng-if="show.length > 0">

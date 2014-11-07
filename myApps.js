@@ -69,7 +69,7 @@ menuModelo.controller("ControllerMenu",function($scope, ServicioMenu){
 //Modulo de los frames que se mostraran al interactuar con el menu vertical
 var frameModule = angular.module("ModuleFrame",["ModuleMenu","ngDialog"]);
 
-frameModule.controller("ControllerFrame",function($scope, ServicioMenu,ngDialog){
+frameModule.controller("ControllerFrame",["$scope","ServicioMenu","ngDialog",function($scope, ServicioMenu,ngDialog){
    $scope.show = 'registrar.html';
    $scope.name = ServicioMenu.name;
    
@@ -83,9 +83,15 @@ frameModule.controller("ControllerFrame",function($scope, ServicioMenu,ngDialog)
    
    $scope.showDialog = function(){
       console.log("Entro")
-      ngDialog.open({ template: 'registrar.html' ,plain:true});
+      ngDialog.open({
+         template: 'registrar.html' 
+         ,plain:false
+         // ,className: 'ngdialog-theme-plain'
+         ,className: 'ngdialog-theme-default'
+         ,showClose: true
+      });
    }
-});
+}]);
 
 
 //registro el 
